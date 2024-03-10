@@ -23,8 +23,8 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://mcr.microsoft.com/
-        username: ${{ secrets.secretname }}
-        password: ${{ secrets.secretpassword }}
+        username: ${{ secrets.secretnamevalue }}
+        password: ${{ secrets.secretpasswordvalue }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
