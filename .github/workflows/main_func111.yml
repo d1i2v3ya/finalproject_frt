@@ -23,8 +23,8 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_c696f55a45ff4e2ca48f127ef426413e }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_74cc332ae2ce415b88236b6fa5ca6af4 }}
+        username: ${{ secrets.secretname }}
+        password: ${{ secrets.secretpassword }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
