@@ -54,18 +54,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: python-app
-      - name: Sample Azure action
-        with:  
-         # Set Azure credentials secret as an input
-         credentials: ${{ secrets.DOCKER_USERNAME }}
-    env: # Or as an environment variable
-      credentials: ${{ secrets.DOCKER_PASSWORD }} 
-       - name:Unzip artifact for deployment
-        run:unzip release.zip
+      
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
 
-       - name:'Deploy to Azure Web App'
-         uses:azure/webapps-deploy@v2
-        id:deploy-to-webapp
-       with:app-name:'webappsent111'
-          slot-name:'Production'
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        id: deploy-to-webapp
+        with:app-name: 'webappsent111'
+          slot-name: 'Production'
           publish-profile:${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9562795A71C14B9BA43E14B428FC4151 }}
